@@ -1,0 +1,217 @@
+@charset "UTF-8";
+
+/* header */
+header{
+    position: relative;
+    height: 170px;
+    background: #fff;
+}
+/* 초록색 배경 100%로 표시해주는 역할
+   태블릿(최소 768px) 이므로 모바일에서는 보이지 않음 */
+header::before{
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #007042;
+}
+header .title{
+    padding: 20px;
+}
+header .title h1{
+    color: #007042;
+    text-align: left;
+        /* 줄간격을 기본값으로 변경함 */
+    line-height: normal;
+}
+header .title h1::before{
+        /* 로고를 h1 안에 앞쪽에 배치한다 */
+    content: '';
+        /* 가상선택자로 공간을 잡으면 기본성질이 인라인이므로 크기를 가지기 위해서
+           만약 display 가 block 일 경우 header 가 아래에 붙게 되어 또다른 처리가 필요하게 됨 */
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: url(../img/logo.png);
+        /* 텍스트와 로고를 수직중앙정렬 */
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* nav */
+[for="btn-menu"]{
+        /* 아예 안 보이게 (차지하는 영역이 없게) */
+    display: none;
+}
+form{
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 0;
+    padding: 0;
+}
+form input{
+    background: #007042;
+    color: white;
+    width: 200px;
+}
+form button{
+    right: 0;
+}
+
+/* gnb */
+.gnb>li{
+    float: left;
+    width: 25%;
+    background: #007042;
+}
+}
+.gnb>li>a{
+    background: #007042;
+}
+
+.gnb ul{
+    background:lightyellow;
+}
+.gnb ul li a{
+    color: #000;
+    border: 0;
+}
+.gnb ul li a:hover{
+    color: #007042;
+}
+
+/* util */
+.util{
+        /* 위치를 잡고 */
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.util li{
+        /* 옆으로 붙이고 */
+    float: left;
+}
+.util li a{
+    padding: 10px;
+}
+
+/* member */
+[for="btn-member"]{
+    top:42px;
+    color:#007042;
+}
+#btn-member:checked ~ .member{
+    height: 174px;
+}
+.member{
+    top:110px;
+}
+.member .wrap{
+    max-width: 100%;
+    padding: 20px;
+}
+.member > div:nth-child(1) .wrap{
+    border:0;
+    border-right:1px solid #fff;
+}
+
+
+
+/* section ================================================= */
+section{padding: 0;}
+
+
+/* main-ad 선생님 풀이 */
+.main-ad{
+        /* 애니메이션이 실행될 때(starbucks.css) 왼쪽, 오른쪽으로 나가 있는 요소를
+           부모쪽에서 숨겨 가로 스크롤이 발생되지 않도록 함 */
+    overflow: hidden;
+}
+.main-ad .container{
+    height: 500px;
+}
+.main-ad .emblem{
+    margin: 0;
+    padding: 20px;
+    text-align: left;
+    animation: left 0.5s;
+}
+.main-ad .flavor{
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    animation: right 0.5s;
+}
+.main-ad .flavor img:nth-child(1){
+    margin: 0;
+}
+.main-ad .flavor img:nth-child(2){
+    position: absolute;
+    bottom: 0px;
+    left: -55px;
+}
+
+    /* 왼쪽, 오른쪽에서 나타나게 하는 애니메이션 */
+    @keyframes left{
+        0%{opacity: 0; transform: translateX(-100px);}
+        100%{opacity: 100%; transform: translateX(0);}
+    }
+    @keyframes right{
+        0%{opacity: 0; transform: translateX(100px);}
+        100%{opacity: 100%; transform: translateX(0px);}
+}
+
+
+
+/* main-ad 내가 푼 거
+.main-ad{}
+.main-ad .container{}
+.main-ad .emblem{
+    float: left;
+    margin: 10px;
+}
+.main-ad .emblem a{
+    text-a
+}
+.main-ad .flavor{
+    position: relative;
+    background: #829816;
+}
+.main-ad .flavor img:nth-child(1){
+    position: absolute;
+    right: 0;
+    top: -70px;
+}
+.main-ad .flavor img:nth-child(2){
+    position: absolute;
+    right: 230px;
+    top: 330px;
+} */
+
+
+
+/* product */
+.product .product-info .bg{
+    height: 450px;
+    background: url('../img/fav_prod_img.png') no-repeat center;
+    background-size: contain;
+}
+.product .product-list .wrap a{
+    bottom: -50px;
+}
+
+
+/* footer ===================================================== */
+.banner .wrap{
+    max-width: 800px;
+    margin: auto;
+}
+.banner .wrap li{
+    float: left;
+    width: 33.33%;
+}
+/* li 중 7,8번쨰 */
+.banner .wrap ul li:nth-child(6)~li{display: none;}
